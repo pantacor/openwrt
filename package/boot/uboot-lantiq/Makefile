@@ -169,6 +169,12 @@ define uboot/arv8539pw22_brn
   DEPS:=@TARGET_lantiq_xway
 endef
 
+define uboot/arv8539pw22_pvram
+  TITLE:=U-Boot for Speedport W 504V Typ A (PantaVisor RAM)
+  SOC:=danube
+  DEPS:=@TARGET_lantiq_xway
+endef
+
 define uboot/gigasx76x_ram
   TITLE:=U-Boot for Siemens Gigaset sx76x (RAM)
   SOC:=danube
@@ -321,7 +327,7 @@ UBOOTS:= \
 	arv7518pw_ram arv7518pw_nor arv7518pw_brn \
 	arv752dpw_ram arv752dpw_nor arv752dpw_brn \
 	arv752dpw22_ram arv752dpw22_nor arv752dpw22_brn \
-        arv8539pw22_brn arv8539pw22_nor arv8539pw22_ram \
+        arv8539pw22_brn arv8539pw22_nor arv8539pw22_ram arv8539pw22_pvram \
 	gigasx76x_ram gigasx76x_nor \
 	acmp252_ram acmp252_nor \
 	easy50712_ram easy50712_nor easy50712_norspl \

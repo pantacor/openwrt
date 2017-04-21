@@ -1,0 +1,20 @@
+Index: u-boot-2013.10/include/configs/arv8539pw22.h
+===================================================================
+--- u-boot-2013.10.orig/include/configs/arv8539pw22.h
++++ u-boot-2013.10/include/configs/arv8539pw22.h
+@@ -65,4 +65,15 @@
+        CONFIG_ENV_UPDATE_UBOOT_NOR     \
+        "kernel_addr=0xB0040000\0"
+
++#if defined(CONFIG_SYS_BOOT_PVRAM)
++// Pantavisor neeeds...
++#define CONFIG_CMD_MTDPARTS
++#define CONFIG_MTD_PARTITIONS
++#define CONFIG_MTD_DEVICE
++#define CONFIG_CMD_UBI
++#define CONFIG_CMD_UBIFS
++#define CONFIG_RBTREE
++#define CONFIG_LZO
++#endif /* CONFIG_SYS_BOOT_PVRAM */
++
+ #endif /* __CONFIG_H */

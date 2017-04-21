@@ -156,19 +156,20 @@
 +#define MC_DC46_VALUE  0x0
 --- a/boards.cfg
 +++ b/boards.cfg
-@@ -553,6 +553,9 @@ Active  mips        mips32         danube      arcadyan        arv752dpw
+@@ -553,6 +553,10 @@ Active  mips        mips32         danube      arcadyan        arv752dpw
  Active  mips        mips32         danube      arcadyan        arv752dpw22         arv752dpw22_brn                      arv752dpw22:SYS_BOOT_BRN                                                                                                          -
  Active  mips        mips32         danube      arcadyan        arv752dpw22         arv752dpw22_nor                      arv752dpw22:SYS_BOOT_NOR                                                                                                          -
  Active  mips        mips32         danube      arcadyan        arv752dpw22         arv752dpw22_ram                      arv752dpw22:SYS_BOOT_RAM                                                                                                          -
 +Active  mips        mips32         danube      arcadyan        arv8539pw22         arv8539pw22_brn                      arv8539pw22:SYS_BOOT_BRN                                                                                                          -
 +Active  mips        mips32         danube      arcadyan        arv8539pw22         arv8539pw22_nor                      arv8539pw22:SYS_BOOT_NOR                                                                                                          -
 +Active  mips        mips32         danube      arcadyan        arv8539pw22         arv8539pw22_ram                      arv8539pw22:SYS_BOOT_RAM                                                                                                          -
++Active  mips        mips32         danube      arcadyan        arv8539pw22         arv8539pw22_pvram                      arv8539pw22:SYS_BOOT_PVRAM                                                                                                          -
  Active  mips        mips32         danube      audiocodes      acmp252             acmp252_nor                          acmp252:SYS_BOOT_NOR                                                                                                              Daniel Golle <daniel.golle@gmail.com>
  Active  mips        mips32         danube      audiocodes      acmp252             acmp252_ram                          acmp252:SYS_BOOT_RAM                                                                                                              Daniel Golle <daniel.golle@gmail.com>
  Active  mips        mips32         danube      gigaset         sx76x               gigasx76x_nor                        sx76x:SYS_BOOT_NOR                                                                                                                Luka Perkov <luka@openwrt.org>
 --- /dev/null
 +++ b/include/configs/arv8539pw22.h
-@@ -0,0 +1,68 @@
+@@ -0,0 +1,74 @@
 +/*
 + * Copyright (C) 2012-2013 Luka Perkov <luka@openwrt.org>
 + *
@@ -211,6 +212,12 @@
 +#define CONFIG_SYS_TEXT_BASE           0x80002000
 +#define CONFIG_SKIP_LOWLEVEL_INIT
 +#define CONFIG_SYS_DISABLE_CACHE
++#define CONFIG_ENV_OVERWRITE 1
++#endif
++
++/* PantaVisor RAM loadable image */
++#if defined(CONFIG_SYS_BOOT_PVRAM)
++#define CONFIG_SYS_TEXT_BASE           0x83B00000
 +#define CONFIG_ENV_OVERWRITE 1
 +#endif
 +
