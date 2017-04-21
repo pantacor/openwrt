@@ -457,6 +457,21 @@ define Device/ARV8539PW22
 endef
 TARGET_DEVICES += ARV8539PW22
 
+ifeq ($(CONFIG_PANTAVISOR),y)
+  define Device/ARV8539PW22-PV
+    DEVICE_PROFILE := ARV8539PW22-PV
+    IMAGE_SIZE := 7616k
+    DEVICE_TITLE := Speedport W504V Typ A - ARV8539PW22 (PantaVisor)
+    DEVICE_PACKAGES := kmod-ltq-hcd-danube \
+	kmod-ltq-adsl-danube-mei kmod-ltq-adsl-danube \
+	kmod-ltq-adsl-danube-fw-b kmod-ltq-atm-danube \
+	ltq-adsl-app ppp-mod-pppoa \
+	kmod-ath9k wpad-mini \
+	swconfig
+  endef
+  TARGET_DEVICES += ARV8539PW22-PV
+endif
+
 define Device/GIGASX76X
   DEVICE_PROFILE := GIGASX76X
   IMAGE_SIZE := 7680k
